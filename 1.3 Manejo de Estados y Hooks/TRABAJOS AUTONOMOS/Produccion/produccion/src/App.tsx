@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Typography } from 'antd';
-import './Produccion.css'
+import './App.css'
 
 const { Title, Text } = Typography;
 
