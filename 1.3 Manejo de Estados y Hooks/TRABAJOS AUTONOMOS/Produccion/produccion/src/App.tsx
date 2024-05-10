@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Button, Typography } from 'antd';
 import './Produccion.css'
-
 
 const { Title, Text } = Typography;
 
-const ProductionCounter = () => {
+const App = () => {
     const [production, setProduction] = useState(0);
     const [ganancias, setProfit] = useState(0);
 
@@ -23,16 +23,16 @@ const ProductionCounter = () => {
         <div className='targeta'>
             <Title level={2}> Conteo</Title>
             <div>
-                <Text>Producion: {production}</Text>
+                <Text>Producción: {production}</Text>
                 <br />
                 <Text>Ganancia: ${ganancias }</Text>
             </div>
             <br />
             <Button className='btn'  type="primary" onClick={increaseProduction}>
-                Incrementar Produccion
+                Incrementar Producción
             </Button>
         </div>
     );
 }
 
-export default ProductionCounter;
+export default App;
