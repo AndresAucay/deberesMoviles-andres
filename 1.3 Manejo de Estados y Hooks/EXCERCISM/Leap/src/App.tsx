@@ -10,7 +10,7 @@ const EsBisiesto = ({ year }: { year: number }) => {
 };
 
 function App() {
-  const year = 400; 
+  const year = 2000; 
 
   return (
     <div className='card'>

@@ -1,51 +1,42 @@
 import React, { useState } from 'react';
-import './App.css'
 
-function ConversorADNAR() {
+const ConversorADNaARN = () => {
   const [entradaADN, setEntradaADN] = useState('');
   const [salidaARN, setSalidaARN] = useState('');
   const [mensajeError, setMensajeError] = useState('');
 
-  const convertirADNaARN = (entradaADN: string | any[]) => {
-    let salidaARN = '';
-    for (let i = 0; i < entradaADN.length; i++) {
-      const letraADN = entradaADN[i].toUpperCase();
-      let letraARN = '';
-      switch (letraADN) {
-        case "A":
-          letraARN = "U";
-          break;
-        case "C":
-          letraARN = "G";
-          break;
-        case "G":
-          letraARN = "C";
-          break;
-        case "T":
-          letraARN = "A";
-          break;
-        default:
-          throw new Error("ADN de entrada no válido.");
-      }
-      salidaARN += letraARN;
+  const convertirADNaARN = (letraADN: string) => {
+    switch (letraADN) {
+      case "A":
+        return "U";
+      case "C":
+        return "G";
+      case "G":
+        return "C";
+      case "T":
+        return "A";
+      default:
+        throw new Error("Entrada de ADN inválida.");
     }
-    return salidaARN;
   };
 
   const manejarConversion = () => {
     try {
-      const resultadoARN = convertirADNaARN(entradaADN);
-      setSalidaARN(resultadoARN);
+      const cadenaARN = entradaADN
+        .split("")
+        .map((letra) => convertirADNaARN(letra))
+        .join("");
+      setSalidaARN(cadenaARN);
       setMensajeError('');
     } catch (error) {
       setSalidaARN('');
-      setMensajeError('ADN de entrada no válido.');
+      setMensajeError('Error al convertir ADN a ARN.');
     }
   };
 
   return (
-    <div className='contenedor'>
-      <h2>Conversor de ADN a ARN</h2>
+    <div>
+      <h2>Convertidor de ADN a ARN</h2>
       <input
         type="text"
         value={entradaADN}
@@ -53,10 +44,10 @@ function ConversorADNAR() {
         placeholder="Ingresa la secuencia de ADN"
       />
       <button onClick={manejarConversion}>Convertir</button>
-      {salidaARN && <p>Salida ARN: {salidaARN}</p>}
+      {salidaARN && <p>Resultado ARN: {salidaARN}</p>}
       {mensajeError && <p style={{ color: 'red' }}>{mensajeError}</p>}
     </div>
   );
-}
+};
 
-export default ConversorADNAR;
+export default ConversorADNaARN;

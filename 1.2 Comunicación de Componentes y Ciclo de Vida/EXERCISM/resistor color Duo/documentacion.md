@@ -2,15 +2,15 @@
 
 ## Funcionamiento del Código
 
-El código proporcionado crea una aplicación que decodifica el valor de resistencia de un resistor basado en el color de las dos primeras bandas.
+El código proporcionado crea una aplicación que decodifica el valor de resistencia de una resistencia basado en el color de las dos primeras bandas.
 
 ## Enumeración `ResistorValues`
 
-- Define un enum llamado `ResistorValues` que asigna un valor numérico a cada color de banda de resistor.
+- Define un enum llamado `ResistorValues` que asigna un valor numérico a cada color de banda de la resistencia.
 
 ## Función `decodedValue`
 
-- La función `decodedValue` toma dos parámetros de tipo `Color`, que representan los colores de las dos primeras bandas del resistor.
+- La función `decodedValue` toma dos parámetros de tipo `Color`, que representan los colores de las dos primeras bandas de la resistencia
 - Devuelve un número que representa el valor de resistencia decodificado basado en los colores proporcionados.
 
 ## Componente `ResistorDecoder`
