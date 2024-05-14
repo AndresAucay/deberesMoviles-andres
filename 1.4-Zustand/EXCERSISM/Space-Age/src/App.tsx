@@ -32,7 +32,7 @@ function App() {
           <ul>
             {planetas.map((planeta) => (
               <li key={planeta.nombre}>
-                {planeta.nombre}: {(segundos / Año_Espacial / planeta.proporcion).toFixed(2)} años
+                {planeta.nombre}: {(segundos / Año_Espacial / planeta.proporcion).toFixed(12)} años
               </li>
             ))}
           </ul>

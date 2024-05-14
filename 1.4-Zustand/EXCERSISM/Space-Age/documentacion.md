@@ -17,3 +17,6 @@ La función divide los segundos proporcionados entre la duración de un año en 
 ## Uso en el código
 
 En el código proporcionado, la función `CalculadoraEdadEnPlanetas` toma la cantidad de segundos como parámetro y devuelve un objeto con la edad de la persona en cada planeta del sistema solar, calculada según las reglas mencionadas anteriormente.
+
+
+Andres AucAY

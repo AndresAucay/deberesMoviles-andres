@@ -2,7 +2,7 @@
 
 El componente `GeneradorPersonajeDnD` implementa un generador de personajes para el juego de Dungeons & Dragonz en React. Permite generar aleatoriamente las habilidades de un personaje y calcular los puntos de vida según las reglas del juego.
 
-## Retorno
+## Return
 
 El componente proporciona una interfaz de usuario donde los usuarios pueden generar un personaje de D&D con habilidades y puntos de vida aleatorios.
 
