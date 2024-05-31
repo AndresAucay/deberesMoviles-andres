@@ -1,4 +1,3 @@
-// src/pages/products/ProductList.tsx
 import React, { useEffect, useState } from 'react';
 import { List, Typography } from 'antd';
 

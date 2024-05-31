@@ -1,4 +1,3 @@
-// src/pages/products/ProductCreate.tsx
 import React from 'react';
 
 const ProductCreate: React.FC = () => {

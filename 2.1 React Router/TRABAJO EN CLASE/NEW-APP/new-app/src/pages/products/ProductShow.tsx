@@ -1,4 +1,3 @@
-// src/pages/products/ProductShow.tsx
 import React from 'react';
 
 const ProductShow: React.FC = () => {
@@ -6,3 +5,4 @@ const ProductShow: React.FC = () => {
 };
 
 export default ProductShow;
+

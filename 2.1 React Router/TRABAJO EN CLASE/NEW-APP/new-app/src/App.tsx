@@ -1,55 +1,21 @@
-// src/App.tsx
-
-import {
-  Authenticated,
-  GitHubBanner,
-  Refine,
-} from "@refinedev/core";
-import {
-  DevtoolsPanel,
-  DevtoolsProvider,
-} from "@refinedev/devtools";
-import {
-  ErrorComponent,
-  ThemedLayoutV2,
-  ThemedSiderV2,
-  useNotificationProvider,
-} from "@refinedev/antd";
+import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
+import { ErrorComponent, ThemedLayoutV2, ThemedSiderV2, useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
-import routerBindings, {
-  CatchAllNavigate,
-  DocumentTitleHandler,
-  NavigateToResource,
-  UnsavedChangesNotifier,
-} from "@refinedev/react-router-v6";
+import routerBindings, { CatchAllNavigate, DocumentTitleHandler, NavigateToResource, UnsavedChangesNotifier } from "@refinedev/react-router-v6";
 import dataProvider from "@refinedev/simple-rest";
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { authProvider } from "./authProvider";
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
-import {
-  BlogPostCreate,
-  BlogPostEdit,
-  BlogPostList,
-  BlogPostShow,
-} from "./pages/blog-posts";
-import {
-  CategoryCreate,
-  CategoryEdit,
-  CategoryList,
-  CategoryShow,
-} from "./pages/categories";
+import { BlogPostCreate, BlogPostEdit, BlogPostList, BlogPostShow } from "./pages/blog-posts";
+import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 
-import {
-  ProductList,
-  ProductCreate,
-  ProductEdit,
-  ProductShow,
-} from "./pages/products"; // Importa tus nuevos componentes
+import { ProductList, ProductCreate, ProductEdit, ProductShow } from "./pages/products"; // Importa tus nuevos componentes
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 function App() {
@@ -136,7 +102,7 @@ function App() {
                       <Route path="edit/:id" element={<CategoryEdit />} />
                       <Route path="show/:id" element={<CategoryShow />} />
                     </Route>
-                    <Route path="/products"> {/* Añade las rutas para productos */}
+                    <Route path="/products">
                       <Route index element={<ProductList />} />
                       <Route path="create" element={<ProductCreate />} />
                       <Route path="edit/:id" element={<ProductEdit />} />
@@ -156,10 +122,7 @@ function App() {
                   >
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route
-                      path="/forgot-password"
-                      element={<ForgotPassword />}
-                    />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
                   </Route>
                 </Routes>
 
