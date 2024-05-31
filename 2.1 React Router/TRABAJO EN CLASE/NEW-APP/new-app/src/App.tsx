@@ -15,8 +15,7 @@ import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
 
-import { ProductList, ProductCreate, ProductEdit, ProductShow } from "./pages/products"; // Importa tus nuevos componentes
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
+import { ProductList, ProductCreate, ProductEdit, ProductShow } from "./pages/products";
 
 function App() {
   return (

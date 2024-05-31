@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { List, Typography } from 'antd';
+import { Table, Typography, notification } from 'antd';
+
+const { Text } = Typography;
 
 const ProductList: React.FC = () => {
     const [products, setProducts] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         fetch('https://api.fake-rest.refine.dev/products')
@@ -14,29 +15,52 @@ const ProductList: React.FC = () => {
                 setLoading(false);
             })
             .catch(error => {
-                setError('Failed to fetch products');
+                notification.error({ message: 'Failed to fetch products', description: error.message });
                 setLoading(false);
             });
     }, []);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>{error}</div>;
-    }
+    const columns = [
+        {
+            title: 'ID',
+            dataIndex: 'id',
+            key: 'id',
+        },
+        {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Description',
+            dataIndex: 'description',
+            key: 'description',
+        },
+        {
+            title: 'Price',
+            dataIndex: 'price',
+            key: 'price',
+        },
+        {
+            title: 'Material',
+            dataIndex: 'material',
+            key: 'material',
+        },
+        {
+            title: 'Category ID',
+            dataIndex: ['category', 'id'],
+            key: 'category.id',
+        },
+    ];
 
     return (
-        <List
-            header={<div>Products</div>}
-            bordered
+        <Table
             dataSource={products}
-            renderItem={item => (
-                <List.Item>
-                    <Typography.Text>{item.name}</Typography.Text>
-                </List.Item>
-            )}
+            columns={columns}
+            loading={loading}
+            rowKey="id"
+            bordered
+            title={() => <Text strong>Products</Text>}
         />
     );
 };
