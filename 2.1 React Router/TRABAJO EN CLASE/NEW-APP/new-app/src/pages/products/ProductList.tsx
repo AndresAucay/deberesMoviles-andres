@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Typography, notification } from 'antd';
+import { Table, Typography, notification, Space } from 'antd';
+import {
+    DeleteButton,
+    EditButton,
+    List,
+    ShowButton,
+    MarkdownField,
+    DateField,
+    useTable,
+} from "@refinedev/antd";
+import type { BaseRecord } from "@refinedev/core";
 
 const { Text } = Typography;
 
-const ProductList: React.FC = () => {
-    const [products, setProducts] = useState<any[]>([]);
+export const ProductList: React.FC = () => {
+    const [products, setProducts] = useState<BaseRecord[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -35,6 +45,7 @@ const ProductList: React.FC = () => {
             title: 'Description',
             dataIndex: 'description',
             key: 'description',
+            render: (text: string) => <MarkdownField value={text} />,
         },
         {
             title: 'Price',
@@ -51,18 +62,39 @@ const ProductList: React.FC = () => {
             dataIndex: ['category', 'id'],
             key: 'category.id',
         },
+        {
+            title: 'Created At',
+            dataIndex: 'createdAt',
+            key: 'createdAt',
+            render: (value: string) => <DateField value={value} />,
+        },
+        {
+            title: 'Actions',
+            key: 'actions',
+            render: (_: any, record: BaseRecord) => (
+                <Space>
+                    <EditButton hideText size="small" recordItemId={record.id} />
+                    <ShowButton hideText size="small" recordItemId={record.id} />
+                    <DeleteButton hideText size="small" recordItemId={record.id} />
+                </Space>
+            ),
+        },
     ];
 
     return (
-        <Table
-            dataSource={products}
-            columns={columns}
-            loading={loading}
-            rowKey="id"
-            bordered
-            title={() => <Text strong>Products</Text>}
-        />
+        <List>
+            <Table
+                dataSource={products}
+                columns={columns}
+                loading={loading}
+                rowKey="id"
+                bordered
+                title={() => <Text strong>Products</Text>}
+            />
+        </List>
     );
 };
 
 export default ProductList;
+
+
