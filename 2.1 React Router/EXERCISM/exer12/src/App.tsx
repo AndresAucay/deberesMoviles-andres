@@ -1,57 +1,44 @@
+
 import React, { useState } from 'react';
 
-const MatrixSolver: React.FC = () => {
-  const [matrixInput, setMatrixInput] = useState<string>('');
-  const [rows, setRows] = useState<string[]>([]);
-  const [columns] = useState<string[][]>([]);
+const App: React.FC = () => {
+  const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
 
-  const solveMatrix = () => {
-    const matrixRows = matrixInput.trim().split('\n');
-    const matrix = matrixRows.map(row => row.trim().split(/\s+/).map(Number));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setMessage(event.target.value);
+  };
 
-    const calculatedColumns: string[][] = [];
-    for (let i = 0; i < matrix[0].length; i++) {
-      const column: string[] = [];
-      for (let j = 0; j < matrix.length; j++) {
-        column.push(matrix[j][i].toString());
-      }
-      calculatedColumns.push(column);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    setResponse(hey(message));
+  };
+
+  const hey = (message: string): string => {
+    if (!message.trim()) {
+      return '¡Bien, sé de esa manera!';
     }
-
-    setRows(matrixRows.map(row => row.split(' ').join(', ')));
-    
+    if (message === message.toUpperCase()) {
+      if (message.endsWith('?')) {
+        return '¡Cálmate, sé lo que estoy haciendo!';
+      }
+      return '¡Vaya, relájate!';
+    }
+    if (message.endsWith('?')) {
+      return 'Seguro.';
+    }
+    return 'Lo que sea.';
   };
 
   return (
     <div>
-      <h2>Ingresar Matriz:</h2>
-      <textarea
-        value={matrixInput}
-        onChange={(e) => setMatrixInput(e.target.value)}
-        rows={5}
-        cols={30}
-      />
-      <button onClick={solveMatrix}>Resolver</button>
-
-      <div>
-        <h2>Filas:</h2>
-        <ul>
-          {rows.map((row, index) => (
-            <li key={index}>{row}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div>
-        <h2>Columnas:</h2>
-        <ul>
-          {columns.map((column, index) => (
-            <li key={index}>{column}</li>
-          ))}
-        </ul>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={message} onChange={handleChange} />
+        <button type="submit">Enviar</button>
+      </form>
+      <p>Respuesta: {response}</p>
     </div>
   );
 };
 
-export default MatrixSolver;
+export default App;
