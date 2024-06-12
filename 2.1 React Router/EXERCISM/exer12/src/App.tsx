@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   const hey = (message: string): string => {
     if (!message.trim()) {
-      return '¡Bien, sé de esa manera!';
+      return '¡Bien, sér de esa manera!';
     }
     if (message === message.toUpperCase()) {
       if (message.endsWith('?')) {
