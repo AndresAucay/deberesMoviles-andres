@@ -24,3 +24,6 @@ const FetchData: React.FC<FetchDataProps> = ({ url }) => {
 }
 
 export default FetchData;
+/*5. Pasar dependencias incorrectas a useEffect
+No actualizar el array de dependencias adecuadamente puede causar bugs difíciles de detectar.
+*/

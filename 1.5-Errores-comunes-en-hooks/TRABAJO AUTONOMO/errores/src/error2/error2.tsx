@@ -16,3 +16,6 @@ const Counter: React.FC = () => {
 }
 
 export default Counter;
+/* Olvidar dependencias en useEffect
+No especificar las dependencias correctamente puede llevar a comportamientos inesperados.
+*/

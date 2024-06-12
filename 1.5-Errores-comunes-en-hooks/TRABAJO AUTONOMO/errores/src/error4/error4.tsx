@@ -16,3 +16,6 @@ const Counter: React.FC = () => {
 }
 
 export default Counter;
+/*. No manejar bien los estados derivados
+Actualizar el estado directamente sin considerar el estado anterior puede llevar a inconsistencias.
+*/

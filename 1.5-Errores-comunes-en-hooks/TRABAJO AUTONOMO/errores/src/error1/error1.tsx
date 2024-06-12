@@ -11,3 +11,6 @@ const Counter: React.FC = () => {
 }
 
 export default Counter;
+/*No usar los Hooks correctamente fuera de componentes o funciones personalizadas
+Los Hooks deben ser usados únicamente dentro de componentes de función de React o en Hooks personalizados.*/
+
