@@ -1,4 +1,4 @@
-import { NumberField, Show, TextField } from "@refinedev/antd";
+import { Show, TextField } from "@refinedev/antd";
 import { useShow } from "@refinedev/core";
 import { Typography } from "antd";
 
@@ -13,7 +13,7 @@ export const CategoryShow = () => {
   return (
     <Show isLoading={isLoading}>
       <Title level={5}>{"ID"}</Title>
-      <NumberField value={record?.id ?? ""} />
+      <TextField value={record?.id} />
       <Title level={5}>{"Title"}</Title>
       <TextField value={record?.title} />
     </Show>

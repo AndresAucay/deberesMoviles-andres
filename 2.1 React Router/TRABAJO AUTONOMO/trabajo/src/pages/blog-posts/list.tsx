@@ -7,7 +7,7 @@ import {
   ShowButton,
   useTable,
 } from "@refinedev/antd";
-import { BaseRecord, useMany } from "@refinedev/core";
+import { useMany, type BaseRecord } from "@refinedev/core";
 import { Space, Table } from "antd";
 
 export const BlogPostList = () => {

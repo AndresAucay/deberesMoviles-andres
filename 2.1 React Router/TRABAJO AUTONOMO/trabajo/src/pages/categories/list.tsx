@@ -5,7 +5,7 @@ import {
   ShowButton,
   useTable,
 } from "@refinedev/antd";
-import { BaseRecord } from "@refinedev/core";
+import type { BaseRecord } from "@refinedev/core";
 import { Space, Table } from "antd";
 
 export const CategoryList = () => {
