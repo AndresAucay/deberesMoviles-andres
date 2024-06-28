@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StatusBar, StyleSheet } from 'react-native';
-import ImageViewer from './components/ImageViewer';
-import Button from './components/Button';
-import PlaceholderImage from './assets/placeholder.png';
+import ImageViewer from './componets/ImageViewer';
+import Button from './componets/Button';
+
 
 export default function App() {
   return (
